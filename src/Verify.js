@@ -4,14 +4,14 @@ const crypto = require('crypto')
 
 const logs = ['cash','cfd','crypto','stock']
 
-function isValid(id) {
+function isValid(id, directory) {
     let error = false
-    if (!fs.existsSync(path.join(process.cwd(), 'log', `${id}.csv`))) {
-        console.error(`${console.error(path.join(process.cwd(), 'log', `${id}.csv`))} file not exists`)
+    if (!fs.existsSync(path.join(process.cwd(), directory, `${id}.csv`))) {
+        console.error(`${console.error(path.join(process.cwd(), directory, `${id}.csv`))} file not exists`)
         error = true
     }
-    if (!fs.existsSync(path.join(process.cwd(), 'log', `${id}_blockchain.csv`))) {
-        console.error(`${console.error(path.join(process.cwd(), 'log', `${id}_blockchain.csv`))} file not exists`)
+    if (!fs.existsSync(path.join(process.cwd(), directory, `${id}_blockchain.csv`))) {
+        console.error(`${console.error(path.join(process.cwd(), directory, `${id}_blockchain.csv`))} file not exists`)
         error = true
     }
 
@@ -19,8 +19,8 @@ function isValid(id) {
         return false
     }
 
-    const content = fs.readFileSync(path.join(process.cwd(), 'log', `${id}.csv`)).toString().split(/\r?\n/).filter(l => l.length > 0)
-    const blockchain = fs.readFileSync(path.join(process.cwd(), 'log', `${id}_blockchain.csv`)).toString().split(/\r?\n/).filter(l => l.length > 0)
+    const content = fs.readFileSync(path.join(process.cwd(), directory, `${id}.csv`)).toString().split(/\r?\n/).filter(l => l.length > 0)
+    const blockchain = fs.readFileSync(path.join(process.cwd(), directory, `${id}_blockchain.csv`)).toString().split(/\r?\n/).filter(l => l.length > 0)
     if (content.length === 0) {
         return true
     }
@@ -49,10 +49,10 @@ function isValid(id) {
     }
 }
 
-function start() {
+function start(type) {
     let error = false
     for (const id of logs) {
-        if (!isValid(id)) {
+        if (!isValid(id, path.join('log', type))) {
             console.error(id + ': is invalid blockchain')
             error = true
         }
@@ -71,4 +71,4 @@ function sha256hash(str) {
     return hash.digest('hex')
 }
 
-start()
+start('real')
