@@ -44,4 +44,11 @@ example 336.16 USD sending to XTB (id = 1) from Revolut (id = 0) pocket\
 
 ## Blockchain history
 
-... TODO
+concept; in code you can see in `src/Verify.js`
+```
+[hash_0] [data] // hash_0 = sha256(data)
+[hash_1] [data] // hash_1 = sha256(hash_0 + sha256(data))
+[hash_2] [data] // hash_2 = sha256(hash_1 + sha256(data))
+[hash_3] [data] // hash_3 = sha256(hash_2 + sha256(data))
+```
+
