@@ -58,7 +58,7 @@ function start() {
         }
     }
     if (error) {
-        process.exit(1)
+        setTimeout(() => process.exit(1), 1000)
     } else {
         console.log('Valid')
         setTimeout(() => process.exit(0), 1000)
