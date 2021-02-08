@@ -1,7 +1,7 @@
 # portfolio-value-log
 
-cfd.csv contains CFD transactions for Dow Jones, EURUSD, etc.
-crypto.csv is for Crypto Portfolio transactions
+cfd.csv contains CFD transactions for Dow Jones, EURUSD, etc.\
+crypto.csv is for Crypto Portfolio transactions\
 stock.csv is for Stock Portfolio transactions
 
 # Data format
