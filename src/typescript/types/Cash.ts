@@ -1,5 +1,5 @@
 export interface Cash {
-  blockHash: string
+  blockHash?: string
   dataFormatId: number
   executedAtDate: string
   pocketId: number

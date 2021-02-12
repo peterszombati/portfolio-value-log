@@ -1,5 +1,5 @@
 export interface TransactionHistory {
-  blockHash: string
+  blockHash?: string
   dataFormatId: number
   executedAtDate: string
   positionId: number
