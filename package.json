@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-value-log",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterszombati/portfolio-value-log.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterszombati/portfolio-value-log/issues"
+  },
+  "homepage": "https://github.com/peterszombati/portfolio-value-log#readme"
+}
