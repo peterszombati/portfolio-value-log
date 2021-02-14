@@ -4,11 +4,11 @@ export interface TransactionHistory {
   executedAtDate: string
   positionId: number
   accountId: number
-  serviceProvider: string
+  serviceProvider: 'kbc' | 'binance' | 'coinbase' | 'xtb' | 'ib'
   ISIN: string
   Ticker: string
   volume: number
-  direction: string
+  direction: 'buy' | 'sell' | 'long' | 'short' | 'close'
   executedPrice: number
   executedCurrency: string
   commissionAmount: number
