@@ -1,7 +1,7 @@
 import {BlockchainHandler} from './BlockchainHandler'
 import {Cash} from "./types/Cash";
 
-export const CashHistory = new BlockchainHandler<Cash>(['cash'], [
+export const createCashHistory = (files: string[]) => new BlockchainHandler<Cash>(files, [
   'blockHash',
   'dataFormatId',
   'executedAtDate',
