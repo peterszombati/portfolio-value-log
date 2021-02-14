@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"sourceMap": true,
+		"strictNullChecks": true,
+		"target": "esnext",
+		"experimentalDecorators": true,
+		"typeRoots": ["./node_modules/@types"],
+		"lib": ["es2017", "dom", "esnext"],
+		"outDir": "build",
+    	"allowSyntheticDefaultImports": true
+    },
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		".idea",
+		"/node_modules",
+		"**/*.d.ts"
+	]
+}

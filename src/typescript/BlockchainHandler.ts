@@ -9,7 +9,7 @@ export class BlockchainHandler<T> {
 
   private files: Files = {}
   private keys: string[]
-  private blockchain: Blockchains
+  private blockchain: Blockchains = {}
 
   constructor(files: string[], keys: string[]) {
     files.forEach(file => {
@@ -44,11 +44,13 @@ export class BlockchainHandler<T> {
 
     const data = fs.readFileSync(dataFile).toString().split(/\r?\n/).filter(l => l.length > 0)
     // TODO load all data ?
-    const elements = data.slice(-1)[0].split(';')
-    this.blockchain[name].push({
-      blockhash: elements[0].trim(),
-      data: elements.slice(1).join(';')
-    })
+    if (data.length > 0) {
+      const elements = data.slice(-1)[0].split(';')
+      this.blockchain[name].push({
+        blockhash: elements[0].trim(),
+        data: elements.slice(1).join(';')
+      })
+    }
   }
 
   push(name: string, data: T) {

@@ -7,11 +7,11 @@ const logs = ['cash','cfd','crypto','stock']
 function isValid(id, directory) {
     let error = false
     if (!fs.existsSync(path.join(process.cwd(), directory, `${id}.csv`))) {
-        console.error(`${console.error(path.join(process.cwd(), directory, `${id}.csv`))} file not exists`)
+        console.error(`${path.join(process.cwd(), directory, `${id}.csv`)} file not exists`)
         error = true
     }
     if (!fs.existsSync(path.join(process.cwd(), directory, `${id}_blockchain.csv`))) {
-        console.error(`${console.error(path.join(process.cwd(), directory, `${id}_blockchain.csv`))} file not exists`)
+        console.error(`${path.join(process.cwd(), directory, `${id}_blockchain.csv`)} file not exists`)
         error = true
     }
 
@@ -31,22 +31,25 @@ function isValid(id, directory) {
 
     let previousHash = null
     for (let i = 0; i < content.length; i++) {
+        // a_hash
         const elements = content[i].trim().split(';')
-        const content_blockhash = elements[0]
+        const a_hash = elements[0]
+
+        // b_hash
         const data = elements.slice(1).join(';')
-        const blockhash = blockchain[i]
-        const calculated_datahash = sha256hash(data)
-        if (content_blockhash !== blockhash) {
+        const data_hash = sha256hash(data)
+        const b_hash = previousHash
+            ? sha256hash(previousHash + data_hash)
+            : data_hash
+
+        if (a_hash !== b_hash) {
             return false
         }
-        const calculated_blockhash = previousHash
-            ? sha256hash(previousHash + calculated_datahash)
-            : sha256hash(calculated_datahash)
-        previousHash = calculated_blockhash
-        if (calculated_blockhash !== blockhash) {
-            return false
-        }
+
+        previousHash = b_hash
     }
+
+    return true
 }
 
 function start(type) {
