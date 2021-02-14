@@ -64,3 +64,10 @@ concept; in code you can see in `src/Verify.js`
 [hash_3] [data] // hash_3 = sha256(hash_2 + sha256(data))
 ```
 
+## How to Verify blockchains in log directory
+
+1. have a NodeJS on command line interface
+2. run this command
+```sh
+node src/Verify.js
+```
