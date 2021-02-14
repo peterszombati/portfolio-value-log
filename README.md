@@ -32,13 +32,13 @@ example 2 Coca Cola stock buy on XTB will look like this in stock.csv:
 0. block hash (sha256)
 1. data format id: number (if in the future data structure will be changed it would be easier to track)
 2. executedAtDate (ISO date string)
-3. pocketId: number
+3. accountId: number
 4. type: deposit / withdraw / exchange / send / dividend
 5. amount: number
 6. currency: ISO 4217
 7. exchangedTo: currency (ISO 4217) (empty if it is not an exchange transaction)
 8. receivedAmount (required for exchange / deposit transaction)
-9. receivedPocketID (if type is send)
+9. receivedAccountId (if type is send)
 10. commissionAmount: number
 11. commissionCurrency: ISO 4217
 12. taxAmount: number
@@ -51,7 +51,7 @@ example deposit 100 000 HUF to Revolut\
 example exchange 100 000 HUF to USD\
 ```[hash];0;2021-02-08T16:27:24.820Z;0;exchange;100000;HUF;USD;336.16;;0;USD;;;```
 
-example 336.16 USD sending to XTB (id = 1) from Revolut (id = 0) pocket\
+example 336.16 USD sending to XTB (id = 1) from Revolut (id = 0) account\
 ```[hash];0;2021-02-08T16:27:24.820Z;0;send;336.16;USD;;;1;0;USD;;;```
 
 ## Blockchain history
