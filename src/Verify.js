@@ -52,12 +52,14 @@ function isValid(id, directory) {
     return true
 }
 
-function start(type) {
+function start(typeList) {
     let error = false
-    for (const id of logs) {
-        if (!isValid(id, path.join('log', type))) {
-            console.error(id + ': is invalid blockchain')
-            error = true
+    for (const type of typeList) {
+        for (const id of logs) {
+            if (!isValid(id, path.join('log', type))) {
+                console.error(`${type}:${id}: is invalid blockchain`)
+                error = true
+            }
         }
     }
     if (error) {
@@ -74,4 +76,4 @@ function sha256hash(str) {
     return hash.digest('hex')
 }
 
-start('real')
+start(['real','demo'])
