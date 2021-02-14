@@ -2,8 +2,8 @@
   "name": "portfolio-value-log",
   "private": true,
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "This repo is made to track all of my investments and trades with git commits based on blockchain",
+  "main": "build/index.js",
   "scripts": {
     "test": "ts-mocha 'test/*.ts' --timeout 10000"
   },
