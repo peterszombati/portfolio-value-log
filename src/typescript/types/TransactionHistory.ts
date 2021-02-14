@@ -13,4 +13,6 @@ export interface TransactionHistory {
   executedCurrency: string
   commissionAmount: number
   commissionCurrency: string
+  taxAmount: number
+  taxCurrency: string
 }

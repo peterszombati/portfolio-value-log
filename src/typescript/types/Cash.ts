@@ -3,7 +3,7 @@ export interface Cash {
   dataFormatId: number
   executedAtDate: string
   pocketId: number
-  type: string
+  type: 'deposit' | 'withdraw' | 'exchange' | 'send' | 'dividend'
   amount: number
   currency: string
   exchangedTo: string
@@ -11,4 +11,7 @@ export interface Cash {
   receivedPocketId: number
   commissionAmount: number
   commissionCurrency: string
+  taxAmount: number
+  taxCurrency: string
+  isin: string
 }

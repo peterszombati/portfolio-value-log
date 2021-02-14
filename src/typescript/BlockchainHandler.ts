@@ -1,12 +1,11 @@
 import * as fs from 'fs'
 import * as _path from 'path'
-import {TransactionHistory} from './types/TransactionHistory'
 import {Blockchains} from './types/Blockchain'
 import {stringify} from './utils/stringify'
 import {sha256hash} from './utils/sha256hash'
 import {Files} from './types/Files'
 
-export class BlockchainHandler {
+export class BlockchainHandler<T> {
 
   private files: Files = {}
   private keys: string[]
@@ -52,7 +51,7 @@ export class BlockchainHandler {
     })
   }
 
-  push(name: string, data: TransactionHistory) {
+  push(name: string, data: T) {
     if (!this.blockchain[name]) {
       throw new Error('this blockchain is not initialized')
     }

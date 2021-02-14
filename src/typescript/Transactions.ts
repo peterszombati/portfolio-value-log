@@ -1,6 +1,7 @@
-import {BlockchainHandler} from "./BlockchainHandler";
+import {BlockchainHandler} from './BlockchainHandler'
+import {TransactionHistory} from './types/TransactionHistory'
 
-export const Transactions = new BlockchainHandler(['cfd', 'crypto', 'stock'], [
+export const Transactions = new BlockchainHandler<TransactionHistory>(['cfd', 'crypto', 'stock'], [
   'blockHash',
   'dataFormatId',
   'executedAtDate',
@@ -14,5 +15,7 @@ export const Transactions = new BlockchainHandler(['cfd', 'crypto', 'stock'], [
   'executedPrice',
   'executedCurrency',
   'commissionAmount',
-  'commissionCurrency'
+  'commissionCurrency',
+  'taxAmount',
+  'taxCurrency'
 ])

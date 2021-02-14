@@ -1,6 +1,7 @@
 import {BlockchainHandler} from './BlockchainHandler'
+import {Cash} from "./types/Cash";
 
-export const CashHistory = new BlockchainHandler(['cash'], [
+export const CashHistory = new BlockchainHandler<Cash>(['cash'], [
   'blockHash',
   'dataFormatId',
   'executedAtDate',
@@ -12,4 +13,8 @@ export const CashHistory = new BlockchainHandler(['cash'], [
   'receivedAmount',
   'receivedPocketId',
   'commissionAmount',
-  'commissionCurrency'])
+  'commissionCurrency',
+  'taxAmount',
+  'taxCurrency',
+  'isin'
+])
