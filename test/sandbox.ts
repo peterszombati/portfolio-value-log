@@ -1,4 +1,4 @@
-import {createCashHistory} from "../src/typescript/createCashHistory";
+import {createCashHistory} from "../src";
 
 describe('test', () => {
   it('test', () => {
